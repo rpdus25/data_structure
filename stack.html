@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>스택</title>
+</head>
+<body>
+    <script>
+        var stack = [];
+        var spaceTop = 0;
+        var maxSpaceNum = 5;
+
+        function add(num) {
+            if(spaceTop < maxSpaceNum) {
+                stack[spaceTop] = num;
+                spaceTop++;
+                console.log('#####스택더하기');
+                console.log(stack);
+            } else {
+                console.log('스택이 다찼습니다.');
+            }
+        }
+
+        function remove() {
+            if (spaceTop > 0 && spaceTop < maxSpaceNum) {
+                spaceTop--;
+                stack.length = spaceTop;
+                console.log('#####스택빼기');
+                console.log(stack);
+            } else {
+                console.log('스택이 비었습니다.');
+            }
+        }
+
+        add(1);
+        add(222);
+        add(3);
+        add(66);
+
+        remove();
+        remove();
+        remove();
+        remove();
+        remove();
+    </script>
+</body>
+</html>
