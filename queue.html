@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>환형큐</title>
+</head>
+<body>
+<script>
+    const queue = [];
+    queue.length = 4;
+
+    let front = 0;
+    let rear = 0;
+
+    function add (data) {
+        if(front === (rear + 1) % queue.length) {
+            console.log('환형큐 다참');
+            console.log(queue);
+        } else {
+            rear = (++rear) % queue.length;
+            console.log('뒤'+ rear);
+            queue[rear] = data;
+            console.log(queue);
+        }
+    }
+
+    function remove () {
+        if(front === rear) {
+            console.log('환형큐가 비었습니다.');
+            console.log(queue);
+        } else {
+            front = (++front) % queue.length;
+            console.log('앞' + front);
+            queue[front] = undefined;
+            console.log(front);
+            console.log(queue);
+        }
+    }
+
+    add(1);
+    add(2);
+    add(3);
+    add(4);
+    remove();
+
+    add(11);
+    remove();
+    remove();
+    add(1);
+    add(2);
+    add(4);
+</script>
+
+</body>
+</html>
